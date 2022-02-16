@@ -17,6 +17,7 @@ catch(Exception $e){
     exit;
 }
 
+
 $sql="select * from varaapoyta where id=?";
 $stmt=mysqli_prepare($yhteys, $sql);
 //Sijoitetaan muuttuja sql-lauseeseen

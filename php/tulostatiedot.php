@@ -17,6 +17,7 @@ $tulos=mysqli_query($yhteys, "select * from varaapoyta");
 while ($rivi=mysqli_fetch_object($tulos)){
     print "<p>$rivi->etunimi <br> $rivi->sukunimi <br> $rivi->sähköposti <br> $rivi->puhelinnumero <br> <a href='./muokkaa.php?muokattava=$rivi->id'>Muokkaa</a></p>";
 }
+
 mysqli_close($yhteys);
 ?>
 <?php 

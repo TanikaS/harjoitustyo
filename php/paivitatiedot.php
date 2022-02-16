@@ -15,6 +15,7 @@ if (empty($etunimi) || empty($sukunimi) || empty($sähköposti) || empty($puhelinn
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+
 try{
     $yhteys=mysqli_connect("db", "root", "password", "harjoitustyo");
 }

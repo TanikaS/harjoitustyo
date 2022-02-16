@@ -16,18 +16,19 @@ try{
     $yhteys=mysqli_connect("db", "root", "password", "harjoitustyo");
 }
 
+
  catch(Exception $e){
   header("Location:../html/yhteysvirhe.html");
     exit;
  }
 
 
-$sql="insert into varaapoyta (etunimi, sukunimi, sähköposti, puhelinnumero) values(?, ?)";
+$sql="insert into varaapoyta (etunimi, sukunimi, sähköposti, puhelinnumero) values(?, ?, ?, ?)";
 
 //Valmistellaan sql-lause
 $stmt=mysqli_prepare($yhteys, $sql);
 //Sijoitetaan muuttujat oikeisiin paikkoihin
-mysqli_stmt_bind_param($stmt, 'si', $etunimi, $sukunimi, $sähköposti, $puhelinnumero);
+mysqli_stmt_bind_param($stmt, 'sdi', $etunimi, $sukunimi, $sähköposti, $puhelinnumero);
 //Suoritetaan sql-lause
 mysqli_stmt_execute($stmt);
 //Suljetaan tietokantayhteys

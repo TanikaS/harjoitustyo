@@ -11,6 +11,7 @@ body{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: black;
 }
+
 @media (min-width: 800px){
     .sidebars{
         flex: 0 0 100px;        
