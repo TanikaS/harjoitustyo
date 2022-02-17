@@ -82,21 +82,21 @@ mysqli_close($yhteys);
                 <ul>
                     <li><a href="index.html">ETUSIVU</a></li>
                     <li><a href="menupage.html">MENU</a></li>
-                    <li><a href="varaapoyta.html">VARAA PÖYTÄ</a></li>
+                    <li><a href="varaapoyta.html">VARAA PÃ–YTÃ„</a></li>
                   </ul>
             </div>
     
             <div class="all-sidebar-2 all-sidebar">
                 <h4>SITKO PIZZA
                     TAMPERE </h4>
-                   <address> Näsilinnankatu 22 <br>
+                   <address> NÃ¤silinnankatu 22 <br>
                     33210 Tampere </address> <br> 
                 
                     <h4>AUKIOLO</h4>    
-                    <p>MA-TO 12–20 <br>
-                    PE 11–21<br>
-                    LA 12–21<br>
-                    SU 13–20 </p> <br>               
+                    <p>MA-TO 12-20 <br>
+                    PE 11-21<br>
+                    LA 12-21<br>
+                    SU 13-20 </p> <br>               
 
                     <h4>YHTEYSTIEDOT</h4>
                     <address>
@@ -108,7 +108,7 @@ mysqli_close($yhteys);
         </div>
     
         <footer>
-            <h3>SEURAA MEITÄ</h3>
+            <h3>SEURAA MEITÃ„</h3>
             
             <a href="https://www.instagram.com/sitkopizza/?hl=en" target="_blank"><img src="https://sitko.pizza/wp-content/uploads/2021/12/instagram-1.svg"  class="img2" alt="ig"> </a>
             <a href="https://www.facebook.com/sitkopizza/" target="_blank"><img src="https://sitko.pizza/wp-content/uploads/2021/12/facebook-1.svg"  class="img2" alt="fb"></a>
