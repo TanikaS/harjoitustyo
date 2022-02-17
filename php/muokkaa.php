@@ -48,7 +48,7 @@ mysqli_stmt_execute($stmt);
 //metodilla mysqli_stmt_get_result($stmt);
 $tulos=mysqli_stmt_get_result($stmt);
 if (!$rivi=mysqli_fetch_object($tulos)){
-    header("Location:../html/tietuettaeiloydy.html");
+    header("Location:../php/tulostatiedot.php");
     exit;
 }
 ?>
@@ -59,8 +59,10 @@ if (!$rivi=mysqli_fetch_object($tulos)){
 <input type='hidden' name='id' value='<?php print $rivi->id;?>' readonly><br>
 Etunimi:<input type='text' name='nimi' value='<?php print $rivi->etunimi;?>'><br>
 Sukunimi:<input type='text' name='sukunimi' value='<?php print $rivi->sukunimi;?>'><br>
-Sahkoposti:<input type='text' name='sahkoposti' value='<?php print $rivi->sahkoposti;?>'><br>
-Puhelinnumero:<input type='text' name='puhelinnumero' value='<?php print $rivi->puhelinumero;?>'><br>
+Sahkoposti:<input type='email' name='sahkoposti' value='<?php print $rivi->sahkoposti;?>'><br>
+Puhelinnumero:<input type='tel' name='puhelinnumero' value='<?php print $rivi->puhelinumero;?>'><br>
+Pvm: <input type="date" id="start" name="pvm"  value="<?php print $rivi->pvm;?>"><br>'
+Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00" value='<?php print $rivi->aika;?>'><br>
 <input type='submit' name='ok' value='ok'><br>
 </form>
 

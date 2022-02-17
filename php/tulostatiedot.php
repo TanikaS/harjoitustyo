@@ -33,7 +33,8 @@ catch(Exception $e){
 $tulos=mysqli_query($yhteys, "select * from varaapoyta");
 
 while ($rivi=mysqli_fetch_object($tulos)){
-    print "<p>$rivi->etunimi <br> $rivi->sukunimi <br> $rivi->sahkoposti <br> $rivi->puhelinnumero <br> <a href='./muokkaa.php?muokattava=$rivi->id'>Muokkaa</a></p>";
+    print "<p>$rivi->etunimi <br> $rivi->sukunimi <br> $rivi->sahkoposti <br> $rivi->puhelinnumero <br> $rivi->pvm <br> $rivi->aika <br>". " <a href='./muokkaa.php?muokattava=$rivi->id'> Muokkaa</a>
+                                                                                                                                              <a href='./poista.php?poistettava=$rivi->id'> Poista</a> ";
 }
 
 mysqli_close($yhteys);
