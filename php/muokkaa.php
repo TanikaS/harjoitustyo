@@ -18,7 +18,7 @@
       <div>
 
 <?php
-
+$initials=parse_ini_file("../.ht.asetukset.ini");
 $muokattava=isset($_GET["muokattava"]) ? $_GET["muokattava"] : "";
 
 //Jos tietoa ei ole annettu, palataan listaukseen
@@ -31,7 +31,7 @@ if (empty($muokattava)){
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "harjoitustyo");
+    $yhteys=mysqli_connect($initials["databaseserver"], $initials["username"], $initials["password"], $initials["database"]);
 }
 catch(Exception $e){
     header("Location:../html/yhteysvirhe.html");
@@ -57,10 +57,10 @@ if (!$rivi=mysqli_fetch_object($tulos)){
 
 <form action='./paivitatiedot.php' method='post'>
 <input type='hidden' name='id' value='<?php print $rivi->id;?>' readonly><br>
-Etunimi:<input type='text' name='nimi' value='<?php print $rivi->etunimi;?>'><br>
+Etunimi:<input type='text' name='etunimi' value='<?php print $rivi->etunimi;?>'><br>
 Sukunimi:<input type='text' name='sukunimi' value='<?php print $rivi->sukunimi;?>'><br>
 Sahkoposti:<input type='email' name='sahkoposti' value='<?php print $rivi->sahkoposti;?>'><br>
-Puhelinnumero:<input type='tel' name='puhelinnumero' value='<?php print $rivi->puhelinumero;?>'><br>
+Puhelinnumero:<input type='tel' name='puhelinnumero' value='<?php print $rivi->puhelinnumero;?>'><br>
 Pvm: <input type="date" id="start" name="pvm"  value="<?php print $rivi->pvm;?>"><br>'
 Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00" value='<?php print $rivi->aika;?>'><br>
 <input type='submit' name='ok' value='ok'><br>

@@ -21,8 +21,9 @@
 
 <?php
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
+$initials=parse_ini_file("../.ht.asetukset.ini");
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "harjoitustyo");
+    $yhteys=mysqli_connect($initials["databaseserver"], $initials["username"], $initials["password"], $initials["database"]);
 }
 catch(Exception $e){
     print "Yhteysongelma";
@@ -49,9 +50,9 @@ mysqli_close($yhteys);
     
             <div class="all-sidebar-1 all-sidebar">
                 <ul>
-                    <li><a href="index.html">ETUSIVU</a></li>
-                    <li><a href="menupage.html">MENU</a></li>
-                    <li><a href="varaapoyta.html">VARAA PÖYTÄ</a></li>
+                    <li><a href="../html/index.html">ETUSIVU</a></li>
+                    <li><a href="../html/menupage.html">MENU</a></li>
+                    <li><a href="../html/varaapoyta.html">VARAA PÖYTÄ</a></li>
                   </ul>
             </div>
     

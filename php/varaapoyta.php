@@ -1,7 +1,7 @@
 <?php
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
-
+$initials=parse_ini_file("../.ht.asetukset.ini");
 $etunimi=isset($_POST["etunimi"]) ? $_POST["etunimi"] : "";
 $sukunimi=isset($_POST["sukunimi"]) ? $_POST["sukunimi"] : "";
 $sahkoposti=isset($_POST["sahkoposti"]) ? $_POST["sahkoposti"] : "";
@@ -16,7 +16,7 @@ if (empty($etunimi) || empty($sukunimi) || empty($sahkoposti) || empty($puhelinn
 }
 
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "harjoitustyo");
+    $yhteys=mysqli_connect($initials["databaseserver"], $initials["username"], $initials["password"], $initials["database"]);
 }
 
  catch(Exception $e){

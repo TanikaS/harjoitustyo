@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='../css/menupage.css'>
-    <title>SITKO - VARAA PÖYTÄ</title>
+    <title>SITKO - REGISTER</title>
     <script>
 
 </script>
@@ -19,17 +19,33 @@
     
             <section class="all-content">
       <div>
-             <h2>VARAA PÖYTÄ</h2>
-<form action='../php/varaapoyta.php' method='post'>
-Etunimi: <input type='text' name='etunimi' value=''><br>
-Sukunimi: <input type='text' name='sukunimi' value=''><br>
-Sahkoposti: <input type='email' name='sahkoposti' value=''><br>
-Puhelinnumero: <input type='tel' name='puhelinnumero' value=''><br>
-Pvm: <input type="date" id="start" name="pvm" value="default"><br>
-Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00"><br>
-<input type='submit' name='ok' value='OK'><br>
-</form>
+             <h2>Rekisteröidy</h2>
+<script>
+function lahetaKayttaja(lomake){
+	var user=new Object();
+	user.tunnus=lomake.tunnus.value;
+	user.salasana=lomake.salasana.value;
+	var jsonUser=JSON.stringify(user);
+	
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		    document.getElementById("result").innerHTML = this.responseText;
+	  }
+	};
+	xmlhttp.open("POST", "../php/rekisteroidy.php", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send("user=" + jsonUser);	
+}
+</script>
 
+TÄYTÄ
+<form id='userlomake'>
+Tunnus: <input type='text' name='tunnus' value='' placeholder='Käyttäjätunnus...'><br>
+Salasana: <input type='password' name='salasana' value='' placeholder='Salasana...'><br>
+<input type='button' name='ok' value='Lähetä' onclick='lahetaKayttaja(this.form);'><br>
+</form>
+<p id='result'>
 
      
     </div>
@@ -76,8 +92,3 @@ Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00"><br>
 
 </body>
 </html>
-
-
-
-
-
