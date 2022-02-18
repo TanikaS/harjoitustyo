@@ -1,5 +1,4 @@
-
-		    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
@@ -16,19 +15,18 @@ function lahetaKayttaja(lomake){
 	user.salasana=lomake.salasana.value;
 	var jsonUser=JSON.stringify(user);
 	
-xmlhttp = new XMLHttpRequest();
+	xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 	  if (this.readyState == 4 && this.status == 200) {
-		    document.getElementById("result").innerHTML = this.responseText;
-		    if (this.response.Text=="eiok"){
-		      document.getElementById("result").innerHTML = "kayttajatunnus tai salasana vaarin";
-		      }
+		    if (this.responseText=="ok"){
+		    	window.location.assign("../php/varaapoyta.php");
+		    }
 		    else{
-			  window.location.assign(this.responseText);
+			    document.getElementById("result").innerHTML = this.responseText;
 		    }
 	  }
 	};
-	xmlhttp.open("POST", "../php/kirjauduajax.php", true);
+	xmlhttp.open("POST", "../php/kirjaudu.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.send("user=" + jsonUser);	
 }
@@ -48,8 +46,11 @@ Tunnus: <input type='text' name='tunnus' value='' placeholder='Käyttäjätunnus
 Salasana: <input type='password' name='salasana' value='' placeholder='Salasana...'><br>
 <input type='button' name='ok' value='Lähetä' onclick='lahetaKayttaja(this.form);'><br>
 </form>
+<p id='result'>
+
+</p>
 <br>
-Ei tunnusta? <a href='rekisteröidy.php'>Rekisteröidy</a>
+Ei tunnusta? <a href='rekisteroidy.html'>Rekisteröidy</a>
 
      
     </div>
@@ -60,7 +61,7 @@ Ei tunnusta? <a href='rekisteröidy.php'>Rekisteröidy</a>
                 <ul>
                     <li><a href="index.html">ETUSIVU</a></li>
                     <li><a href="menupage.html">MENU</a></li>
-                    <li><a href="varaapoyta.html">VARAA PÖYTÄ</a></li>
+                    <li><a href="kirjaudu.html">VARAA PÖYTÄ</a></li>
                   </ul>
             </div>
     

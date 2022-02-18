@@ -18,28 +18,25 @@ catch(Exception $e){
     exit;
 }
 
-//Tehd��n sql-lause, jossa kysymysmerkeill� osoitetaan paikat
-//joihin laitetaan muuttujien arvoja
+
 $sql="select * from kayttaja where tunnus=? and salasana=SHA2(?, 256)";
 try{
     //Valmistellaan sql-lause
     $stmt=mysqli_prepare($yhteys, $sql);
-    //Sijoitetaan muuttujat oikeisiin paikkoihin
+
     mysqli_stmt_bind_param($stmt, 'ss', $user->tunnus, $user->salasana);
-    //Suoritetaan sql-lause
+  
     mysqli_stmt_execute($stmt);
-    //Koska luetaan prepared statementilla, tulos haetaan
-    //metodilla mysqli_stmt_get_result($stmt);
+
     $tulos=mysqli_stmt_get_result($stmt);
     if ($rivi=mysqli_fetch_object($tulos)){
         $_SESSION["kayttaja"]="$rivi->tunnus";
-        print $_SESSION["paluuosoite"];
+        print "ok";
         exit;
     }
     //Suljetaan tietokantayhteys
     mysqli_close($yhteys);
-    
-    
+    print $json;
 }
 catch(Exception $e){
     print "Jokin virhe!";

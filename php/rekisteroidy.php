@@ -7,7 +7,7 @@ if (!($user=tarkistaJson($json))){
 }
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try{
-    $yhteys=mysqli_connect("db", "root", "password", "harjoitustyo");
+    $yhteys=mysqli_connect("db", "root", "password", "tiedot");
 }
 catch(Exception $e){
     print "Yhteysvirhe";
@@ -23,6 +23,10 @@ try{
     mysqli_stmt_execute($stmt);
     mysqli_close($yhteys);
     print "Käyttäjätili luotu";
+ ?>
+ <br>
+ <a href='kirjaudu.html'>Kirjaudu</a>
+ <?php 
 }
 catch(Exception $e){
     print "Tunnus jo olemassa tai muu virhe!";

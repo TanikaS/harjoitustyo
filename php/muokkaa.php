@@ -61,7 +61,7 @@ Etunimi:<input type='text' name='etunimi' value='<?php print $rivi->etunimi;?>'>
 Sukunimi:<input type='text' name='sukunimi' value='<?php print $rivi->sukunimi;?>'><br>
 Sahkoposti:<input type='email' name='sahkoposti' value='<?php print $rivi->sahkoposti;?>'><br>
 Puhelinnumero:<input type='tel' name='puhelinnumero' value='<?php print $rivi->puhelinnumero;?>'><br>
-Pvm: <input type="date" id="start" name="pvm"  value="<?php print $rivi->pvm;?>"><br>'
+Pvm: <input type="date" id="start" name="pvm"  value="<?php print $rivi->pvm;?>"><br>
 Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00" value='<?php print $rivi->aika;?>'><br>
 <input type='submit' name='ok' value='ok'><br>
 </form>

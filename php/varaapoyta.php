@@ -8,8 +8,6 @@ print "<h2>Tervetuloa, ".$_SESSION["kayttaja"]."!</h2>";
 ?>
 <a href='kirjauduulos.php'>Kirjaudu ulos</a>
 
-
-
 <?php
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);

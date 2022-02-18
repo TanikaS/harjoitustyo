@@ -17,7 +17,7 @@
         <div class="all-body">
     
             <section class="all-content">
-            <h2>Tarkista tiedot</h2>
+            <h2>Pöytävaraus</h2>
       <div>
 
 <?php
@@ -48,7 +48,9 @@ while ($rivi=mysqli_fetch_object($tulos)){
 
 mysqli_close($yhteys);
 ?>
-
+<br>
+<br>
+<a href='kirjauduulos.php'>Kirjaudu ulos</a>
 
 
      
