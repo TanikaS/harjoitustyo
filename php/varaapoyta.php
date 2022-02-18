@@ -1,4 +1,16 @@
 <?php
+session_start();
+if (!isset($_SESSION["kayttaja"])){
+    header("Location:../html/kirjaudu.html");
+    exit;
+}
+print "<h2>Tervetuloa, ".$_SESSION["kayttaja"]."!</h2>";
+?>
+<a href='kirjauduulos.php'>Kirjaudu ulos</a>
+
+
+
+<?php
 
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 
@@ -30,7 +42,7 @@ $sql="insert into varaapoyta (etunimi, sukunimi, sahkoposti, puhelinnumero, pvm,
 //Valmistellaan sql-lause
 $stmt=mysqli_prepare($yhteys, $sql);
 //Sijoitetaan muuttujat oikeisiin paikkoihin
-mysqli_stmt_bind_param($stmt, 'sssssi', $etunimi, $sukunimi, $sahkoposti, $puhelinnumero, $pvm, $aika);
+mysqli_stmt_bind_param($stmt, 'ssssss', $etunimi, $sukunimi, $sahkoposti, $puhelinnumero, $pvm, $aika);
 //Suoritetaan sql-lause
 mysqli_stmt_execute($stmt);
 //Suljetaan tietokantayhteys

@@ -17,6 +17,7 @@
         <div class="all-body">
     
             <section class="all-content">
+            <h2>Tarkista tiedot</h2>
       <div>
 
 <?php
@@ -33,8 +34,15 @@ catch(Exception $e){
 $tulos=mysqli_query($yhteys, "select * from varaapoyta");
 
 while ($rivi=mysqli_fetch_object($tulos)){
-    print "<p>$rivi->etunimi <br> $rivi->sukunimi <br> $rivi->sahkoposti <br> $rivi->puhelinnumero <br> $rivi->pvm <br> $rivi->aika <br>". " <a href='./muokkaa.php?muokattava=$rivi->id'> Muokkaa</a>
-                                                                                                                                              <a href='./poista.php?poistettava=$rivi->id'> Poista</a> ";
+    print "<p> <b> Etunimi: </b>  $rivi->etunimi <br> 
+              <b> Sukunimi:</b>  $rivi->sukunimi <br> 
+              <b> Sähköposti:</b>  $rivi->sahkoposti <br> 
+              <b> Puhelinnumero:</b> $rivi->puhelinnumero <br> 
+              <b> Pvm:</b>  $rivi->pvm <br> 
+              <b> Aika: </b> klo $rivi->aika <br>". " 
+
+<a href='./muokkaa.php?muokattava=$rivi->id'> Muokkaa</a>
+<a href='./poista.php?poistettava=$rivi->id'> Poista</a> ";
 }
 
 mysqli_close($yhteys);

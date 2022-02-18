@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+		    <!DOCTYPE html>
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='../css/menupage.css'>
     <title>SITKO - MENU</title>
-    <script>
-
-</script>
 </head>
     <body class="all">
+    <script>
+function lahetaKayttaja(lomake){
+	var user=new Object();
+	user.tunnus=lomake.tunnus.value;
+	user.salasana=lomake.salasana.value;
+	var jsonUser=JSON.stringify(user);
+	
+xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		    document.getElementById("result").innerHTML = this.responseText;
+		    if (this.response.Text=="eiok"){
+		      document.getElementById("result").innerHTML = "kayttajatunnus tai salasana vaarin";
+		      }
+		    else{
+			  window.location.assign(this.responseText);
+		    }
+	  }
+	};
+	xmlhttp.open("POST", "../php/kirjauduajax.php", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send("user=" + jsonUser);	
+}
+</script>
+    
         <header>
             <a href="index.html" target="_blank"> <img src="../images/logo.jpg" class="img1" alt=logo ></a>
         </header>
@@ -19,17 +42,14 @@
     
             <section class="all-content">
       <div>
-             <h2>Varaa pöytä</h2>
-<form action='../php/varaapoyta.php' method='post'>
-Etunimi: <input type='text' name='etunimi' value=''><br>
-Sukunimi: <input type='text' name='sukunimi' value=''><br>
-Sahkoposti: <input type='email' name='sahkoposti' value=''><br>
-Puhelinnumero: <input type='tel' name='puhelinnumero' value=''><br>
-Pvm: <input type="date" id="start" name="pvm" value="default"><br>
-Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00"><br>
-<input type='submit' name='ok' value='OK'><br>
+             <h2>Kirjaudu</h2>
+<form id='userlomake'>
+Tunnus: <input type='text' name='tunnus' value='' placeholder='Käyttäjätunnus...'><br>
+Salasana: <input type='password' name='salasana' value='' placeholder='Salasana...'><br>
+<input type='button' name='ok' value='Lähetä' onclick='lahetaKayttaja(this.form);'><br>
 </form>
-
+<br>
+Ei tunnusta? <a href='rekisteröidy.php'>Rekisteröidy</a>
 
      
     </div>
@@ -40,7 +60,7 @@ Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00"><br>
                 <ul>
                     <li><a href="index.html">ETUSIVU</a></li>
                     <li><a href="menupage.html">MENU</a></li>
-                    <li><a href="kirjaudu.html">VARAA PÖYTÄ</a></li>
+                    <li><a href="varaapoyta.html">VARAA PÖYTÄ</a></li>
                   </ul>
             </div>
     
@@ -81,3 +101,4 @@ Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00"><br>
 
 
 
+		

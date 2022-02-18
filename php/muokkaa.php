@@ -57,11 +57,11 @@ if (!$rivi=mysqli_fetch_object($tulos)){
 
 <form action='./paivitatiedot.php' method='post'>
 <input type='hidden' name='id' value='<?php print $rivi->id;?>' readonly><br>
-Etunimi:<input type='text' name='nimi' value='<?php print $rivi->etunimi;?>'><br>
+Etunimi:<input type='text' name='etunimi' value='<?php print $rivi->etunimi;?>'><br>
 Sukunimi:<input type='text' name='sukunimi' value='<?php print $rivi->sukunimi;?>'><br>
 Sahkoposti:<input type='email' name='sahkoposti' value='<?php print $rivi->sahkoposti;?>'><br>
-Puhelinnumero:<input type='tel' name='puhelinnumero' value='<?php print $rivi->puhelinumero;?>'><br>
-Pvm: <input type="date" id="start" name="pvm"  value="<?php print $rivi->pvm;?>"><br>'
+Puhelinnumero:<input type='tel' name='puhelinnumero' value='<?php print $rivi->puhelinnumero;?>'><br>
+Pvm: <input type="date" id="start" name="pvm"  value="<?php print $rivi->pvm;?>"><br>
 Aika: <input type="time" id="appt" name="aika" min="11:00" max="21:00" value='<?php print $rivi->aika;?>'><br>
 <input type='submit' name='ok' value='ok'><br>
 </form>
