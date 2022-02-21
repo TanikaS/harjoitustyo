@@ -53,7 +53,7 @@ if (!$rivi=mysqli_fetch_object($tulos)){
 }
 ?>
 
-
+<h3>MUOKKAA</h3>
 
 <form action='./paivitatiedot.php' method='post'>
 <input type='hidden' name='id' value='<?php print $rivi->id;?>' readonly><br>
